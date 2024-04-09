@@ -1,5 +1,6 @@
-export const Button = ({label}) => {
+import './../components/style.css'
+export function Button({children}) {
     return <button>
-        {label}
+        {children}
         </button>
 }
