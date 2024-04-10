@@ -1,15 +1,17 @@
-import { Link } from "react-router-dom";
+import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
 
 export function Footer(){
     return (
-      <div className="border-top  margin-top-sm fixed-bottom">
-        <footer className="footer-layout uhf-container has-padding">
-          <Link to={'/'}>
-            <p>Главная страница</p>
-          </Link>
-          <p>Заготовка на будущее</p>
-          <p>Доп контент</p>
-        </footer>
-      </div>
+        <Box component="footer" sx={{ bgcolor: "background.paper", py: 4 }} className="footer-layout ">
+           <Divider variant="middle"  />
+            <Link href={"/"}>
+              <Typography variant="body1" color="text.secondary">Главная страница</Typography>
+            </Link>
+            <Typography variant="body1" color="text.secondary">Заготовка на будущее</Typography>
+            <Typography variant="body1" color="text.secondary">Доп контент</Typography>
+        </Box>
     );
 }

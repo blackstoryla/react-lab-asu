@@ -1,8 +1,10 @@
 import './../components/style.css'
+import { Box } from '@mui/material';
+
 export function Menu({children}){
     return(
-        <div className="left-container column one-third-tablet">
+        <Box component="div" sx={{ bgcolor: "background.paper", py: 4 }} className="left-container column one-third-tablet">
             {children}
-        </div>
+        </Box>
     )
 }

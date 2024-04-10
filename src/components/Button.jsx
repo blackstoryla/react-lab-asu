@@ -1,6 +1,7 @@
-import './../components/style.css'
 export function Button({children}) {
-    return <button>
+    return (
+    <button>
         {children}
-        </button>
+    </button>
+    )
 }

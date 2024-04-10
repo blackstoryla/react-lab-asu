@@ -1,35 +1,38 @@
 import { Content } from "../components/Content"
 import { Button } from "../components/Button"
 
+import Typography from '@mui/material/Typography';
+
 export function LabInfoDefault(){
     return(
         <>
         <Content>
-          <h2>Лабораторная работа 1</h2>
-          <p>
+          <Typography variant="h4" color="text.secondary">Лабораторная работа 1</Typography>
+          <Typography variant="body1" color="text.secondary">
           Реализовать скрипт, который уведомит о полной загрузке страницы
-          <p>
+          </Typography>
+          <Typography variant="body1" color="text.secondary">
             Реализовать кнопку счетчик, которая будет увеличивать счетчик на
             1 и вывести его значение на страницу (button onclick)
-          </p>
-          <p>
+          </Typography>
+          <Typography variant="body1" color="text.secondary">
             Реализовать кнопку счетчик, которая будет уменьшать счетчик на 1
             реализовать с помощью listener click
-          </p>
-          <p>Реализовать форму аутентификации пользователя (form)</p>
-          <p>Реализовать скрипт очистки данных формы</p>
-          <p>
+          </Typography>
+          <Typography variant="body1" color="text.secondary">Реализовать форму аутентификации пользователя (form)</Typography>
+          <Typography variant="body1" color="text.secondary">Реализовать скрипт очистки данных формы</Typography>
+          <Typography variant="body1" color="text.secondary">
             Реализовать скрипт отправки данных формы с помощью listener
             submit.
-          </p>
-          <p>
+          </Typography>
+          <Typography variant="body1" color="text.secondary">
             Без отправки на сервер провести валидацию введенных данных, если
             login==admin & pass==admin вывести сообщение об успехе, иначе
             сообщение о неуспехе
-          </p>
-          <p></p>Реализовать скрипт сохранения учетных данных и
+          </Typography>
+          <Typography variant="body1" color="text.secondary">Реализовать скрипт сохранения учетных данных и
           автоподстановку оных с помощью localStorage
-          </p>
+          </Typography>
           <Button>Готово</Button>
         </Content>
         </>
