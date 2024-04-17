@@ -5,6 +5,7 @@ import { Layout } from './wigets/Layout.jsx';
 import {Auth} from './pages/Auth.jsx'
 import { LabInfo } from './wigets/Labinfo.jsx';
 import { LabInfoDefault } from './wigets/LabInfoDefault.jsx';
+import { Table } from './pages/Table.jsx';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path=':id' element = {<LabInfo/>} />
           </Route>  
           <Route path='authorization' element = {<Auth/>} />
+          <Route path='table' element = {<Table/>}/>
         </Route>
       </Routes>
     </>

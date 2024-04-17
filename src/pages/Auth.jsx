@@ -4,6 +4,10 @@ import { useCallback, useState, useEffect } from "react";
 import { useDispatch} from 'react-redux'
 import { logIn } from "../ReduxSore/actions";
 
+import { Box } from '@mui/material';
+import Snackbar from '@mui/material/Snackbar';
+import Typography from '@mui/material/Typography';
+
 export function Auth(){
     const {register, handleSubmit} = useForm();
     const dispatch = useDispatch()
@@ -15,13 +19,17 @@ export function Auth(){
         .then(data => setUsers(data))
       }, []);
 
+    const [textAlert, setTextAlert] = useState();
+
     const auth = useCallback((d) => {
         if(d.login === "admin" && d.password === "admin"){
             dispatch(logIn())
-            alert("Вы авторизовались")
+            handleClick()
+            setTextAlert("Вы авторизовались")
         }
         else{
-            alert("Повторите ввод")
+            handleClick()
+            setTextAlert("Повторите ввод")
         }
 
         for(let i = 0; i < users.length; i++){
@@ -40,15 +48,50 @@ export function Auth(){
 
     },[]);
 
-    return(
-        <>
-            <form onSubmit={handleSubmit(auth)}>
-                <label>Login</label>
+    const [open, setOpen] = useState(false);
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+        return;
+    }
+
+    setOpen(false);
+    };
+    const style = {
+        marginTop: '15px',
+        color: 'text.secondary',
+    }
+
+    return (
+      <>
+        <Snackbar
+          open={open}
+          anchorOrigin={{ vertical: "top", horizontal: "center" }}
+          autoHideDuration={5000}
+          onClose={handleClose}
+          message={textAlert}
+        />
+        <div className="mainContainer uhf-container has-default-focus">
+          <div className="columns has-large-gaps display-flex container-auto-height">
+            <Box
+              component="div"
+              sx={{ bgcolor: "background.paper", py: 4 }}
+              className="primary-holder column "
+            >
+              <form onSubmit={handleSubmit(auth)}>
+              <Typography variant="body1" sx={style} >Login</Typography>
                 <input {...register("login")} />
-                <label>Password</label>
+                <Typography variant="body1" sx={style} >Password</Typography>
                 <input {...register("password")} />
                 <Button>Войти</Button>
-            </form>
-        </>
-    )
+              </form>
+            </Box>
+          </div>
+        </div>
+      </>
+    );
 }
