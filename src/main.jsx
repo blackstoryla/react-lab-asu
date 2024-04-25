@@ -6,7 +6,7 @@ import "./index.css";
 
 import CustomThemeProvider from "./wigets/Theme.jsx";
 import { Provider } from 'react-redux';
-import store from "./ReduxSore/store.jsx";
+import { store } from "./ReduxSore/store.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
